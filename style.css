@@ -1,0 +1,33 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    font-family: 'Lexend', sans-serif;
+}
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+}
+
+section {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    word-wrap: break-word;
+
+    margin: 0 0 0 1rem;
+
+    border-left: 1px solid hsl(0, 0%, 70%);
+}
+
+.highlight-word {
+    position: relative;
+    color: black;
+    font-size: 5.5rem;
+    font-weight: 800;
+}
