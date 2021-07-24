@@ -32,9 +32,7 @@ let slicedWord = ''
  * And the cycle repeats.. =D
 */
 const type = () => {
-    if (wordIndex === wordsList.length) {
-        wordIndex = 0
-    }
+    if (isLastWord()) resetWordIndex()
 
     setCurrentWord()
     writeOneLetter()
@@ -42,22 +40,17 @@ const type = () => {
     if (hasTypingFinished()) {
         setTimeout(erase, currentWord.length * 120)
     } else {
-        setTimeout(type, 100)
+        setTimeout(type, 90)
     }
 }
 
 const erase = () => {
-    if (wordIndex === wordsList.length) {
-        wordIndex = 0
-    }
-
-    setCurrentWord()
     eraseOneLetter()
 
     if (hasEraseFinished()) {
         nextWord()
         resetLetterIndex()
-        setTimeout(type, 100)
+        setTimeout(type, 90)
     } else {
         setTimeout(erase, 50)
     }
@@ -77,9 +70,13 @@ const hasEraseFinished = () => slicedWord.length === 0
 
 const hasTypingFinished = () => slicedWord.length === currentWord.length
 
+const isLastWord = () => wordIndex === wordsList.length
+
 const nextWord = () => wordIndex++
 
 const resetLetterIndex = () => letterIndex = 0
+
+const resetWordIndex = () => wordIndex = 0
 
 const setCurrentWord = () => currentWord = wordsList[wordIndex]
 
